@@ -13,7 +13,7 @@ ENV GIT_MIRROR_URL     https://gitee.com/mirrors/YApi.git
 
 WORKDIR ${HOME}/
 
-RUN apk add --no-cache git curl
+RUN apk add --no-cache git curl bash
 
 COPY entrypoint.sh /bin
 COPY config.json ${HOME}
