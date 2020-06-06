@@ -1,2 +1,2 @@
 #! /bin/bash
-docker build -f Dockerfile -t mrjin/yapi:latest .
+docker build -f Dockerfile -t gclove/yapi:latest .

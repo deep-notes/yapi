@@ -1,9 +1,9 @@
-FROM node:10.20.1-jessie
-MAINTAINER mrjin<me@jinfeijie.cn>
-ENV VERSION 	1.8.3
+FROM node:12-alpine
+LABEL MAINTAINER="gclove@live.com"
+ENV VERSION 	1.9.2
 ENV HOME        "/home"
 ENV PORT        3000
-ENV ADMIN_EMAIL "me@jinfeijie.cn"
+ENV ADMIN_EMAIL "gclove@live.com"
 ENV DB_SERVER 	"mongo"
 ENV DB_NAME 	"yapi"
 ENV DB_PORT 	27017
@@ -12,6 +12,8 @@ ENV GIT_URL     https://github.com/YMFE/yapi.git
 ENV GIT_MIRROR_URL     https://gitee.com/mirrors/YApi.git
 
 WORKDIR ${HOME}/
+
+RUN apk add --no-cache git curl
 
 COPY entrypoint.sh /bin
 COPY config.json ${HOME}
@@ -22,6 +24,8 @@ RUN rm -rf node && \
     if [ $ret -ne 0 ]; then \
         GIT_URL=${GIT_MIRROR_URL} && npm config set registry https://registry.npm.taobao.org; \
     fi; \
+	\
+	npm config set registry https://registry.npm.taobao.org; \
     echo ${GIT_URL} && \
 	git clone ${GIT_URL} vendors && \
 	cd vendors && \
