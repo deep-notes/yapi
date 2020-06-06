@@ -25,7 +25,7 @@ RUN rm -rf node && \
         GIT_URL=${GIT_MIRROR_URL} && npm config set registry https://registry.npm.taobao.org; \
     fi; \
 	\
-	npm config set registry https://registry.npm.taobao.org; \
+	\
     echo ${GIT_URL} && \
 	git clone ${GIT_URL} vendors && \
 	cd vendors && \

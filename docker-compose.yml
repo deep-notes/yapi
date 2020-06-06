@@ -2,7 +2,7 @@ version: '2.1'
 services:
   yapi:
     image: gclove/yapi:latest
-    build: ./
+    # build: ./
     container_name: yapi
     environment:
       - VERSION=1.9.2
@@ -35,4 +35,4 @@ services:
       - back-net
 networks:
   back-net:
-    external: true
+    # external: true
